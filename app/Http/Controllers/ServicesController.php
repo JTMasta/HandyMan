@@ -63,10 +63,5 @@ class ServicesController extends Controller
 
     }
 
-    public function delete() {
-
-        
-    }
-
 
 }
