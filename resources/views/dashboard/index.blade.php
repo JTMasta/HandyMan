@@ -16,7 +16,8 @@
                     <td class="row">{{ $service->job_title }}</td>
                     <td><a href="/services/{{ $service->id }}/edit">Edit</a></td>
                     <td>
-                        <form method="POST" action="/services/{{ $service->id}}">
+                        <form method="POST" action="/services/{{ $service->id }}">
+                            {{ csrf_field() }}
                             @method ('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
