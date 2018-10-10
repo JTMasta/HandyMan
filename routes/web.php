@@ -25,6 +25,7 @@ Route::get('/register', ['uses' => 'RegistrationController@create'])->name('regi
 Route::get('/register/handyman', 'RegistrationController@createHandyMan');
 Route::post('/register', 'RegistrationController@store');
 
+Route::get('/dashboard', 'DashBoardController@index');
 
 Route::get('/login', 'SessionsController@create');
 Route::post('/login', 'SessionsController@store');

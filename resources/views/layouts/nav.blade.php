@@ -29,7 +29,7 @@
                     Welcome, {{ ucwords(Auth::user()->name) }}!
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Dashboard</a>
+                    <a class="dropdown-item" href="/dashboard">Dashboard</a>
                     <a class="dropdown-item" href="/logout">logout</a>
                 </div>
             </div>

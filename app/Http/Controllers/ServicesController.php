@@ -63,5 +63,11 @@ class ServicesController extends Controller
 
     }
 
+    public function delete($id) {
+        
+        $service = Service::find($id)->delete();
 
+        return redirect('/dashboard');
+        
+    }
 }
