@@ -2,7 +2,7 @@
 
 @section ('content')
 <div class="container">
-
+@include ('layouts.flash_msg')
     <br>
     <table class="table">
         <thead>
@@ -14,7 +14,7 @@
             @foreach ($services as $service)
                 <tr>
                     <td class="row">{{ $service->job_title }}</td>
-                    <td><a href="/services/{{ $service->id }}/edit">Edit</a></td>
+                    <td><a href="/services/{{ $service->id }}/edit" class="btn btn-warning">Edit</a></td>
                     <td>
                         <form method="POST" action="/services/{{ $service->id }}">
                             {{ csrf_field() }}

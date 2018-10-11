@@ -45,6 +45,8 @@ class ServicesController extends Controller
             'body' => request('body'),
             'user_id' => auth()->user()->id
         ]);
+        
+        session()->flash('message', 'New HandyMan service created!');
 
         return redirect('/services');
     }
@@ -59,13 +61,17 @@ class ServicesController extends Controller
 
         $service->update($request->all());
 
-        return redirect('/');
+        session()->flash('message', 'HandyMan service updated');
+
+        return redirect('/dashboard');
 
     }
 
     public function delete($id) {
         
         $service = Service::find($id)->delete();
+
+        session()->flash('message', 'HandyMan service deleted!');
 
         return redirect('/dashboard');
         

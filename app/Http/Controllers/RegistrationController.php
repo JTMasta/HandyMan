@@ -45,6 +45,7 @@ class RegistrationController extends Controller
         // Sign them in
         auth()->login($user);
         // Redirect back to home
+        session()->flash('message', 'You have successfully signed up and are now logged into the system as a '.auth()->user()->role.'!');
         return redirect('/');
     }
 
