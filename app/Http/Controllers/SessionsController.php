@@ -23,6 +23,8 @@ class SessionsController extends Controller
 
         auth()->logout();
 
+        session()->flash('message', 'You have successfully logged out');
+
         return redirect('/');
 
     }
@@ -35,6 +37,8 @@ class SessionsController extends Controller
             // Authentication passed...
             return back();
         }
+        
+        session()->flash('message', 'Welcome back '.auth()->user()->name);
 
         return redirect('/');
 

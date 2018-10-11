@@ -10568,10 +10568,7 @@ a.text-dark:focus {
 }
 
 #flash-message {
-  bottom: 20px;
-  position: absolute;
-  right: 20px;
-  z-index: 10;
+  z-index: 5;
   -webkit-animation: flash-message 6s forwards;
           animation: flash-message 6s forwards;
 }
