@@ -31,11 +31,23 @@ class SessionsController extends Controller
 
     public function store(Request $request) {
 
-        $credentials = $request->only('email', 'password');
+        // $credentials = $request->only('email', 'password');
 
-        if (!Auth::attempt($credentials)) {
-            // Authentication passed...
-            return back();
+        // if (!Auth::attempt($credentials)) {
+        //     // Authentication did not pass...
+
+        //     session()->flash('message', 'Incorrect credentials. Please try again ');
+
+        //     return back();
+        // }
+
+        if (! auth()->attempt(request(['email', 'password']))) {
+
+            return back()->withErrors([
+
+                'message' => 'Please check your credentials and try again.'
+
+            ]);
         }
         
         session()->flash('message', 'Welcome back '.auth()->user()->name);
