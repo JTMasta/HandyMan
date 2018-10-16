@@ -40,7 +40,10 @@ class RegistrationController extends Controller
                 'name' => request('name'),
                 'email' => request('email'),
                 'password' => bcrypt(request('password')),
-                'role' => $role
+                'role' => $role,
+                'street_address' => request('street_address'),
+                'city' => request('city'),
+                'zip' => request('zip')
             ]);
         // Sign them in
         auth()->login($user);

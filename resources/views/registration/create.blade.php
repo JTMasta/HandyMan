@@ -13,6 +13,18 @@
                     <input type="email" class="form-control" id="email" name="email">
             </div>
             <div class="form-group">
+                <label for="street">Street address:</label>
+                <input type="text" class="form-control" id="street" name="street_address">
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" class="form-control" id="city" name=" city">
+            </div>
+            <div class="form-group">
+                <label for="zip">Postal Code:</label>
+                <input type="text" class="form-control" id="zip" name="zip">
+            </div>
+            <div class="form-group">
                     <label for="password">Password:</label>
                     <input type="password" class="form-control" id="password" name="password">
             </div>
