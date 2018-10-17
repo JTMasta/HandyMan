@@ -10,6 +10,7 @@
         @if (Auth::check() && Auth::user()->role === "Customer")
             <a class="nav-link" href="/">Home</a>
             <a class="nav-link" href="/services">Handymen</a>
+            <a class="nav-link" href="/handyman/search">Find HandyMan</a>
             <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Welcome, {{ ucwords(Auth::user()->name) }}!
