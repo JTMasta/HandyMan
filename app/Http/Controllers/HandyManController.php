@@ -13,18 +13,24 @@ class HandyManController extends Controller
 
         // dd($handyman_title);
 
-        $handymen = DB::table('services')
+        $handymen = DB::table('services')->join('users', 'users.id', '=', 'services.user_id')
+                                ->select('users.name', 'services.job_title')
                                 ->where([
                                     ['job_title', '=', $handyman_title],
                                 ])->get();
+        // dd($handymen[0]->name);
         $distances = [];
         $destinationsArr = [];
         $origin = Auth::user()->only(['street_address','city', 'province', 'country', 'zip']);
         $origin = implode(" ", array_values($origin));
         
         $from = urlencode($origin);
-        $destinations = DB::table('users')->select('street_address','city', 'province', 'country', 'zip')->where('role', '=', 'HandyMan')->get();
-        // dd(implode(" ", get_object_vars($destinations[0])));
+        // $destinations = DB::table('users')->select('street_address','city', 'province', 'country', 'zip')->where('role', '=', 'HandyMan')->get();
+        $destinations = DB::table('users')->join('services', 'services.user_id', '=', 'users.id')
+                                    ->select('users.street_address', 'users.city', 'users.province', 'users.country', 'users.zip')
+                                    ->where('job_title', '=', $handyman_title)
+                                    ->get();
+        // dd($destinations);
         foreach($destinations as $destination) {
             array_push($destinationsArr, implode(" ", get_object_vars($destination)));
         }
@@ -39,8 +45,8 @@ class HandyManController extends Controller
             $handymen[$i]->distance = $distances[$i];
             $handymen[$i]->city = $destinations[$i]->city;
         }
-        
-        return view('handyman.results', compact('handymen'));
+        // dd($handymen[0]->name, $handymen[0]->distance);
+        return view('handyman.results', compact('handymen', 'handyman_title'));
     }
 
     public function search() {

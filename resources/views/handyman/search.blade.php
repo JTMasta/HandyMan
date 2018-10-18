@@ -13,9 +13,11 @@
 <body>
     <div class="container">
     <form method="GET" action="/handyman/results">
+        <br>
+        <h1>Lookup local HandyMen for pretty much anything.</h1>
         <div class="form-group">
-            <label for="job_title">Enter HandyMan you wish to search</label>
-            <input type="text" name="job_title" class="form-control" id="job_title">
+            <label for="job_title"></label>
+            <input type="text" name="job_title" class="form-control" id="job_title" placeholder="What Handyman are you looking for to hire?">
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Search</button>
