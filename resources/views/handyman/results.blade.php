@@ -3,14 +3,15 @@
 @section ('content')
 <div class="container">
     @if(sizeof($handymen) > 0)
+        <br>
         <h1>List of available {{ $handymen[0]->job_title }}s</h1>
-        <p>Note that the <strong>Distance</strong> column is between you and the HandyMan's actual addresses!</p>
         <table class="table">
             <thead>
                 <th scope="col">Handyman Title</th>
                 <th scope="col">Handyman First Name</th>
                 <th scope="col">Handyman City</th>
                 <th scope="col">Distance</th>
+                <th scope="col"></th>
             </thead>
             <tbody>
                 @foreach ($handymen as $handyman)
@@ -19,6 +20,7 @@
                         <td>{{ $handyman->name }}</td>
                         <td>{{ $handyman->city }}</td>
                         <td>{{ $handyman->distance }}</td>
+                        <td><a href="#" class="btn btn-primary">Contact</a></td>
                     </tr>
                 @endforeach
             </tbody>
