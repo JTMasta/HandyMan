@@ -17,7 +17,7 @@
         <h1>Lookup local HandyMen for pretty much anything.</h1>
         <div class="form-group">
             <label for="job_title"></label>
-            <input type="text" name="job_title" class="form-control" id="job_title" placeholder="What Handyman are you looking for to hire?">
+            <input type="text" name="job_title" class="form-control" id="job_title" placeholder="What Handyman are you looking for?">
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Search</button>

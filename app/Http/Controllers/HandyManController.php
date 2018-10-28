@@ -10,7 +10,7 @@ class HandyManController extends Controller
     public function index(Request $request) {
 
         $handyman_title = $request->input('job_title');
-
+        $key = env('API_KEY');
         // dd($handyman_title);
 
         $handymen = DB::table('services')->join('users', 'users.id', '=', 'services.user_id')
@@ -37,7 +37,7 @@ class HandyManController extends Controller
         // dd($destinationsArr);
         foreach($destinationsArr as $destination) {
             $to = urlencode($destination);
-            $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?origins=$from&destinations=$to&key=AIzaSyCdvFqXTGyqAG7njPUCJ441WeugMW5jafE");
+            $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?origins=$from&destinations=$to&key=$key");
             $data = json_decode($api);
             array_push($distances, $data->rows[0]->elements[0]->distance->text);
         }
